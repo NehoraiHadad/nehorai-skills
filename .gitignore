@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+
+# packaged skill artifacts (regenerate with skill-creator's package_skill)
+*.skill
+
+# OS
+.DS_Store
+Thumbs.db
