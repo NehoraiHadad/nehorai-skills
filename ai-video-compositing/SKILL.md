@@ -13,8 +13,8 @@ description: >-
   video", "transparent webm shows black in ffmpeg", "the transition explodes /
   edges have a green halo", or building a transparent WebM (+MP4 fallback) for a
   site. NOT for generating the video/image/music/lip-sync or single-photo
-  background removal (that's kie-ai), nor ordinary non-AI editing (trim, plain
-  concat, captions, colour grade).
+  background removal (use a dedicated generation / kie.ai integration skill), nor
+  ordinary non-AI editing (trim, plain concat, captions, colour grade).
 ---
 
 # AI video compositing — stitch, matte, and inspect
@@ -142,13 +142,14 @@ Exact encode commands: `references/ffmpeg-recipes.md`.
   the difference between seconds and many minutes.
 - **Verify transparency in a browser, not ffmpeg** (see the cheatsheet).
 
-## A worked example (this repo's landing page)
+## Generic example pattern
 
-`nehoraihadad.com`'s landing character is a realistic→pixel→anime metamorphosis
-loop built exactly this way: 3 Seedance clips (each a dwell→morph segment) →
-`rembg` matte per frame → green-clamp despill → alpha-dissolve stitch with a
-matched realistic↔realistic hard-cut wrap → VP9-alpha WebM + navy MP4 fallback +
-PNG poster, wired into an Astro page. The full case write-up (with the dead ends:
-abandoned chroma key, the moving studio seam, the pixelize explosion) is the
-project's `landing/media/keyframes/final/MANIFEST.md`. It's the canonical example
-of *why* each decision above was made.
+A typical landing-page character loop can use this shape: 3 AI-generated clips
+where each one is a dwell→morph segment, `rembg` matting per frame, despill,
+alpha-dissolve stitching, a matched hard-cut wrap, VP9-alpha WebM, opaque MP4
+fallback, and a transparent PNG poster.
+
+Keep project-specific case studies, asset paths, and implementation manifests in
+the project repository that owns those assets. This skill should stay generic and
+portable so it can be shared without exposing personal or project-specific
+context.
