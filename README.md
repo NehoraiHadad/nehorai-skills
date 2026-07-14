@@ -8,6 +8,7 @@ skills — reusable, self-documenting capabilities Claude can invoke across proj
 | Skill | What it does |
 |-------|--------------|
 | [`ai-video-compositing`](ai-video-compositing/SKILL.md) | Post-production for AI-generated video clips: stitch clips into one seamless loop, matte the subject off its background (rembg over chroma key), kill the green/colour fringe, re-apply styles the model smoothed away, and inspect the result frame-by-frame. Bundles `matte_frames.py`, `loop_stitch.py`, `inspect_video.py`. |
+| [`meta-whatsapp-golive`](meta-whatsapp-golive/SKILL.md) | Set up and debug the Meta WhatsApp Cloud API webhook so inbound messages reach the bot and get replies. Covers the two independent config layers (app callback vs per-WABA `subscribed_apps`), the App-Live and stale-redirecting-domain traps, the verify-token handshake, and a cheapest→deepest "no bot reply" playbook that treats the DB as real-time truth over lagging host logs. |
 
 ## Install
 
